@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170730074845) do
     t.string   "birthday_year"
     t.string   "birthday_month_day"
     t.string   "postal_code"
+    t.string   "address"
     t.string   "tel1"
     t.string   "tel2"
     t.string   "tel3"
