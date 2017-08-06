@@ -23,11 +23,11 @@
   </tr>
   <tr>
     <th><%= form.label :postal_code, "郵便番号" %></th>
-    <td><%= form.text_field :postal_code %></td>
+    <td><input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></td>
   </tr>
   <tr>
     <th><%= form.label :address, "住所" %></th>
-    <td><%= form.text_field :address %></td>
+    <td><input type="text" name="addr11" size="100"></td>
   </tr>
   <tr>
     <th><%= form.label :tel, "電話番号" %></th>

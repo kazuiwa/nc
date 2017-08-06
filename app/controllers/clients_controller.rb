@@ -10,6 +10,8 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(record_params)
+    @client.postal_code = params["zip11"]
+    @client.address = params["addr11"]
     if @client.save
       redirect_to :root
     else
@@ -44,8 +46,6 @@ class ClientsController < ApplicationController
         :sex,
         :birthday_year,
         :birthday_month_day,
-        :postal_code,
-        :address,
         :tel1,
         :tel2,
         :tel3,
