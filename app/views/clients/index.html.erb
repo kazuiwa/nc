@@ -1,1 +1,16 @@
 <h1>顧客情報リスト</h1>
+<table id="clients-list">
+  <tr>
+    <th>No</th>
+    <th>氏名</th>
+    <th>住所</th>
+  </tr>
+  <% @clients.each_with_index do |client, idx| %>
+    <tr>
+      <td><%= idx +1 %></td>
+      <td><%= client.sei %>　<%= client.mei %></td>
+      <td><%= client.address %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "new", new_client_path %>

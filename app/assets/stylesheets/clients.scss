@@ -1,3 +1,11 @@
-// Place all the styles related to the clients controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#clients-list {
+  border: 1px black solid;
+  border-collapse: collapse;
+
+  th{
+    border: 1px black solid;
+  }
+  td {
+    border: 1px black solid;
+  }
+}

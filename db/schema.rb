@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170730074845) do
     t.string   "mei"
     t.string   "kana_sei"
     t.string   "kana_mei"
-    t.boolean  "sex"
+    t.integer  "sex"
     t.string   "birthday_year"
     t.string   "birthday_month_day"
     t.string   "postal_code"

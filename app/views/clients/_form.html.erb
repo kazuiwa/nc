@@ -1,0 +1,68 @@
+<table>
+  <tr>
+    <th><%= form.label :sei, "姓" %></th>
+    <td><%= form.text_field :sei %></td>
+    <th><%= form.label :mei, "名" %></th>
+    <td><%= form.text_field :mei %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :kana_sei, "セイ" %></th>
+    <td><%= form.text_field :kana_sei %></td>
+    <th><%= form.label :kana_mei, "メイ" %></th>
+    <td><%= form.text_field :kana_mei %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :sex, "性別" %></th>
+    <td><%= form.radio_button :sex, 0 %>男　<%= form.radio_button :sex, 1 %>女</td>
+  </tr>
+  <tr>
+    <th><%= form.label :birthday_year, "誕生年" %></th>
+    <td><%= form.text_field :birthday_year %></td>
+    <th><%= form.label :birthday_month_day, "誕生月日" %></th>
+    <td><%= form.text_field :birthday_month_day %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :postal_code, "郵便番号" %></th>
+    <td><%= form.text_field :postal_code %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :address, "住所" %></th>
+    <td><%= form.text_field :address %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :tel, "電話番号" %></th>
+    <td><%= form.text_field :tel1 %>-
+      <%= form.text_field :tel2 %>-
+      <%= form.text_field :tel3 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :mail, "メールアドレス" %></th>
+    <td><%= form.text_field :mail %></td>
+  </tr>
+  <tr>
+    <% options = [["ホットペッパー（本誌）", 1],
+       ["ホットペッパー（インターネット）", 2],
+                  ["通りがかり", 3],
+                  ["紹介", 4],
+                  ["広告", 5],
+                  ["その他", 6]] %>
+    <th><%= form.label :douki, "動機" %></th>
+    <td><%= form.select :douki, options %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :shoukaisha, "紹介者" %></th>
+    <td><%= form.text_field :shoukaisha %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :douki_etc, "動機　その他" %></th>
+    <td><%= form.text_field :douki_etc %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :memo_client, "お客様用　メモ" %></th>
+    <td><%= form.text_area :memo_client %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :memo_admin, "管理者用　メモ" %></th>
+    <td><%= form.text_area :memo_admin %></td>
+  </tr>
+</table>
