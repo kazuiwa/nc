@@ -1,68 +1,87 @@
-<table>
-  <tr>
-    <th><%= form.label :sei, "姓" %></th>
-    <td><%= form.text_field :sei %></td>
-    <th><%= form.label :mei, "名" %></th>
-    <td><%= form.text_field :mei %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :kana_sei, "セイ" %></th>
-    <td><%= form.text_field :kana_sei %></td>
-    <th><%= form.label :kana_mei, "メイ" %></th>
-    <td><%= form.text_field :kana_mei %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :sex, "性別" %></th>
-    <td><%= form.radio_button :sex, 0 %>男　<%= form.radio_button :sex, 1 %>女</td>
-  </tr>
-  <tr>
-    <th><%= form.label :birthday_year, "誕生年" %></th>
-    <td><%= form.text_field :birthday_year %></td>
-    <th><%= form.label :birthday_month_day, "誕生月日" %></th>
-    <td><%= form.text_field :birthday_month_day %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :postal_code, "郵便番号" %></th>
-    <td><input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></td>
-  </tr>
-  <tr>
-    <th><%= form.label :address, "住所" %></th>
-    <td><input type="text" name="addr11" size="100"></td>
-  </tr>
-  <tr>
-    <th><%= form.label :tel, "電話番号" %></th>
-    <td><%= form.text_field :tel1 %>-
-      <%= form.text_field :tel2 %>-
-      <%= form.text_field :tel3 %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :mail, "メールアドレス" %></th>
-    <td><%= form.text_field :mail %></td>
-  </tr>
-  <tr>
-    <% options = [["ホットペッパー（本誌）", 1],
-       ["ホットペッパー（インターネット）", 2],
-                  ["通りがかり", 3],
-                  ["紹介", 4],
-                  ["広告", 5],
-                  ["その他", 6]] %>
-    <th><%= form.label :douki, "動機" %></th>
-    <td><%= form.select :douki, options %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :shoukaisha, "紹介者" %></th>
-    <td><%= form.text_field :shoukaisha %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :douki_etc, "動機　その他" %></th>
-    <td><%= form.text_field :douki_etc %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :memo_client, "お客様用　メモ" %></th>
-    <td><%= form.text_area :memo_client %></td>
-  </tr>
-  <tr>
-    <th><%= form.label :memo_admin, "管理者用　メモ" %></th>
-    <td><%= form.text_area :memo_admin %></td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :sei, "姓" %></div>
+  <div class="col-md-2"><%= form.text_field :sei %></div>
+  <div class="col-md-2 form-label"><%= form.label :mei, "名" %></div>
+  <div class="col-md-2"><%= form.text_field :mei %></div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :kana_sei, "セイ" %></div>
+  <div class="col-md-2"><%= form.text_field :kana_sei %></div>
+  <div class="col-md-2 form-label"><%= form.label :kana_mei, "メイ" %></div>
+  <div class="col-md-2"><%= form.text_field :kana_mei %></div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :sex, "性別" %></div>
+  <div class="col-md-2">男<%= form.radio_button :sex, 0 %>　女<%= form.radio_button :sex, 1 %></div>
+  <div class="col-md-8"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :sei, "生年月日" %></div>
+  <div class="col-md-3">
+    <span>年</span>
+    <%= form.text_field :sei, size: "6" %>
+    <span style="margin-left: 15px;">月日</span>
+    <%= form.text_field :sei, size: "6" %>
+  </div>
+  <div class="col-md-7"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :postal_code, "郵便番号" %></div>
+  <div class="col-md-10"><input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :address, "住所" %></div>
+  <div class="col-md-10"><input type="text" name="addr11" size="80"></div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :tel, "電話番号" %></div>
+  <div class="col-md-10">
+    <%= form.text_field :tel1, size: "4" %>-
+    <%= form.text_field :tel2, size: "4" %>-
+    <%= form.text_field :tel3, size: "4" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :mail, "メールアドレス" %></div>
+  <div class="col-md-10">
+    <input type="text" name="account" size="30">@
+    <select name="sample">
+      <option>選択してください</option>
+      <option>gmail.com</option>
+      <option>yahoo.co.jp</option>
+      <option>該当なし</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :douki, "動機" %></div>
+  <div class="col-md-10">
+    <%= form.select :douki, Client::DOUKIES %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :shoukaisha, "紹介者" %></div>
+  <div class="col-md-10">
+    <%= form.text_field :shoukaisha %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :douki_etc, "動機　その他" %></div>
+  <div class="col-md-10">
+    <%= form.text_field :douki_etc %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :memo_client, "お客様用　メモ" %></div>
+  <div class="col-md-10">
+    <%= form.text_area :memo_client %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 form-label"><%= form.label :memo_admin, "管理者用　メモ" %></div>
+  <div class="col-md-10">
+    <%= form.text_area :memo_admin %>
+  </div>
+</div>

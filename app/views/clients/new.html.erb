@@ -1,4 +1,6 @@
-<%= form_for @client do |form| %>
-  <%= render "form", form: form %>
-  <p><%= form.submit %></p>
-<% end %>
+<div id="client-new">
+  <%= form_for @client do |form| %>
+    <%= render "form", form: form %>
+    <p style="text-align: center"><%= form.submit %></p>
+  <% end %>
+</div>
