@@ -18,12 +18,12 @@
   <div class="col-md-8"></div>
 </div>
 <div class="row">
-  <div class="col-md-2 form-label"><%= form.label :sei, "生年月日" %></div>
+  <div class="col-md-2 form-label"><%= form.label :birthday, "生年月日" %></div>
   <div class="col-md-3">
     <span>年</span>
-    <%= form.text_field :sei, size: "6" %>
+    <%= form.text_field :birthday_year, size: "6" %>
     <span style="margin-left: 15px;">月日</span>
-    <%= form.text_field :sei, size: "6" %>
+    <%= form.text_field :birthday_month_day, size: "6" %>
   </div>
   <div class="col-md-7"></div>
 </div>
@@ -46,13 +46,7 @@
 <div class="row">
   <div class="col-md-2 form-label"><%= form.label :mail, "メールアドレス" %></div>
   <div class="col-md-10">
-    <input type="text" name="account" size="30">@
-    <select name="sample">
-      <option>選択してください</option>
-      <option>gmail.com</option>
-      <option>yahoo.co.jp</option>
-      <option>該当なし</option>
-    </select>
+    <%= form.text_field :mail, id: "email", size: "60" %>
   </div>
 </div>
 <div class="row">
@@ -85,5 +79,3 @@
     <%= form.text_area :memo_admin %>
   </div>
 </div>
-<label>メールアドレス</label>
-<input type="text" id="email">
