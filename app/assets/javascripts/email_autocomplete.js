@@ -85,8 +85,7 @@ $(function(){
         // @より前を含めたドメインリストの作成
         for (var i = 0; i < domainData.length; i++) {
             domains[i] = mailname + '@' + domainData[i];
-        }
-        ;
+        };
 
         // autocompleteの構築
         $(target).autocomplete({
