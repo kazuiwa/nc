@@ -24,15 +24,15 @@
   <div class="col-md-2 form-label"><%= form.label :birthday, "生年月日" %></div>
   <div class="col-md-4">
     <div class="col-md-1" style="padding: 0; text-align: right; width: 15px;">年</div>
-    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_year, class: "form-control", maxlength: "4", style: "ime-mode: disabled;" %></div>
+    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_year, class: "form-control", maxlength: "4", type:"tel" %></div>
     <div class="col-md-2" style="padding: 0; text-align: right; width: 30px;">月日</div>
-    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_month_day, class: "form-control", maxlength: "4", style: "ime-mode: disabled;" %></div>
+    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_month_day, class: "form-control", maxlength: "4", type:"tel" %></div>
     <div class="col-md-3"></div>
   </div>
 </div>
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :postal_code, "郵便番号" %></div>
-  <div class="col-md-10" style="width: 110px;"><input type="text" name="zip11" class="form-control" maxlength="7" style="ime-mode: disabled;" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></div>
+  <div class="col-md-10" style="width: 110px;"><input type="tel" name="zip11" class="form-control" maxlength="7" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></div>
 </div>
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :address, "住所" %></div>
@@ -41,17 +41,17 @@
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :tel, "電話番号" %></div>
   <div class="col-md-4">
-    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel1, class: "form-control", maxlength: "4", style: "ime-mode: disabled;" %></div>
+    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel1, class: "form-control", maxlength: "4", type:"tel" %></div>
     <div class="col-md-1" style="padding: 0; padding-top: 5px; text-align: center;">-</div>
-    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel2, class: "form-control", maxlength: "4", style: "ime-mode: disabled;" %></div>
+    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel2, class: "form-control", maxlength: "4", type:"tel" %></div>
     <div class="col-md-1" style="padding: 0; padding-top: 5px; text-align: center;">-</div>
-    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel3, class: "form-control", maxlength: "4", style: "ime-mode: disabled;" %></div>
+    <div class="col-md-3" style="padding: 0; width: 60px;"><%= form.text_field :tel3, class: "form-control", maxlength: "4", type:"tel" %></div>
   </div>
 </div>
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :mail, "メールアドレス" %></div>
   <div class="col-md-8">
-    <%= form.text_field :mail, id: "email", class: "form-control", style: "ime-mode: disabled;" %>
+    <%= form.text_field :mail, id: "email", class: "form-control", type:"tel" %>
   </div>
 </div>
 <div class="row form-group">
