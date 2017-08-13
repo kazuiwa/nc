@@ -60,13 +60,13 @@
     <%= form.select :douki, Client::DOUKIES %>
   </div>
 </div>
-<div class="row form-group">
+<div id="form-shoukaisha" class="row form-group" style="display: none;">
   <div class="col-md-2 form-label"><%= form.label :shoukaisha, "紹介者" %></div>
   <div class="col-md-4">
     <%= form.text_field :shoukaisha, class: "form-control" %>
   </div>
 </div>
-<div class="row form-group">
+<div id="form-douki-etc"  class="row form-group" style="display: none;">
   <div class="col-md-2 form-label"><%= form.label :douki_etc, "動機　その他" %></div>
   <div class="col-md-8">
     <%= form.text_field :douki_etc, class: "form-control" %>
