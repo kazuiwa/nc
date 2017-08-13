@@ -4,14 +4,29 @@
     <title>Nc</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
-
   <body>
-    <%= yield %>
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="container">
+      <%= render "shared/header" %>
+    </div>
+  </div>
+  <!-- メイン -->
+  <div class="jumboron">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
+  <!-- フッター -->
+  <div class="footer">
+    <div class="container">
+    </div>
+  </div>
   </body>
 </html>

@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require jquery-ui
 //= require_tree .
+
+//入力フォームでエンターキーを無効にする
+$(function(){
+    $("input"). keydown(function(e) {
+        if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+            return false;
+        } else {
+            return true;
+        }
+    });
+});
