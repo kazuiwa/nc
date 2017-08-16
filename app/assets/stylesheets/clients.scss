@@ -18,19 +18,21 @@ html, body {
   padding: 0 10px;
 }
 .header{
-
 }
 .footer{
-
 }
 
 
 #clients-list {
   border: 1px black solid;
   border-collapse: collapse;
+  background-color: #ffffff;
 
   th{
+    background-color: Black;
+    color: white;
     border: 1px black solid;
+    text-align: center;
   }
   td {
     border: 1px black solid;

@@ -24,11 +24,19 @@ class ClientsController < ApplicationController
   end
 
   def edit
-
+    @client = Client.find_by_id(params[:id])
   end
 
   def update
-
+    @client = Client.find_by_id(params[:id])
+    @client.assign_attributes(record_params)
+    @client.postal_code = params["zip11"]
+    @client.address = params["addr11"]
+    if @client.save
+      redirect_to :root
+    else
+      render "edit"
+    end
   end
 
   def destroy

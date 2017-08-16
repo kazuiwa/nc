@@ -1,5 +1,5 @@
 $(function(){
-    if ($("#client-new").length) {
+    if ($("#client-new").length || $("#client-edit").length) {
         //動機プルダウン変更時のアクション
         $("#client_douki").change(function () {
             //紹介の場合

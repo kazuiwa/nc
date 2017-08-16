@@ -1,15 +1,23 @@
-<%= link_to "new", new_client_path %>
-<table id="clients-list">
+<h4 style="float: left;">作成した顧客データの一覧です。</h4>
+<div style="text-align: right"><%= link_to "新規作成", { :controller => "clients", :action => "new" }, { :class => "btn btn-default" }  %></div>
+<div style="clear:both;"></div>
+<hr style="margin-top: 0; border: 1px solid black">
+<table id="clients-list" class="table table-hover">
   <tr>
     <th>No</th>
     <th>氏名</th>
     <th>住所</th>
+    <th></th>
   </tr>
   <% @clients.each_with_index do |client, idx| %>
     <tr>
-      <td><%= idx +1 %></td>
+      <td style="text-align: center"><%= idx +1 %></td>
       <td><%= client.sei %>　<%= client.mei %></td>
       <td><%= client.address %></td>
+      <td style="text-align: center">
+        <%= link_to "編集", [:edit, client], { :class => "btn btn-default" } %>
+      </td>
     </tr>
   <% end %>
 </table>
+<hr style="border: 1px solid black">
