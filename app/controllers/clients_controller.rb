@@ -1,7 +1,7 @@
 #coding: utf-8
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    @clients = Client.paginate(page: params[:page], per_page: 10).order("created_at desc")
   end
 
   def new
@@ -19,10 +19,6 @@ class ClientsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def edit
     @client = Client.find_by_id(params[:id])
   end
@@ -37,10 +33,6 @@ class ClientsController < ApplicationController
     else
       render "edit"
     end
-  end
-
-  def destroy
-
   end
 
   private
