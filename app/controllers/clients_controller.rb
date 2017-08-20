@@ -35,6 +35,17 @@ class ClientsController < ApplicationController
     end
   end
 
+  def csv_output
+    csv_data = Client.get_csv_data
+    title = "NC"
+    send_data(csv_data,
+            type: 'text/csv',
+            x_sendfile: true,
+            filename: "#{title}_#{Time.now.strftime('%Y%m%d%H%M%S')}.csv"
+            .kconv(Kconv::UTF8)
+    )
+  end
+
   private
 
   def record_params

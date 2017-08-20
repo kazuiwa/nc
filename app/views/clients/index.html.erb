@@ -1,5 +1,6 @@
 <h4 style="float: left;">作成した顧客データの一覧です。</h4>
-<div style="text-align: right"><%= link_to "新規作成", { :controller => "clients", :action => "new" }, { :class => "btn btn-default" }  %></div>
+<div style="float: right;"><%= link_to "CSV出力", { :controller => "clients", :action => "csv_output" }, { :class => "btn btn-default" }  %></div>
+<div style="float: right; margin-right: 10px;"><%= link_to "新規作成", { :controller => "clients", :action => "new" }, { :class => "btn btn-default" }  %></div>
 <div style="clear:both;"></div>
 <hr style="margin-top: 0; border: 1px solid black">
 <table id="clients-list" class="table table-hover">
