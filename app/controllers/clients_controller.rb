@@ -12,15 +12,58 @@ class ClientsController < ApplicationController
     @client = Client.new(record_params)
     @client.postal_code = params["zip11"]
     @client.address = params["addr11"]
+
+    if params[:client]["birthday(1i)"].present?
+      @client.birthday_year = params[:client]["birthday(1i)"]
+    else
+      @client.birthday_year = nil
+    end
+
+    if params[:client]["birthday(2i)"].present? && params[:client]["birthday(2i)"].length == 1
+      params_birthday_month = "0" + params[:client]["birthday(2i)"]
+    elsif params[:client]["birthday(2i)"].present?
+      params_birthday_month = params[:client]["birthday(2i)"]
+    else
+      params_birthday_month = ""
+    end
+
+    if params[:client]["birthday(3i)"].present? && params[:client]["birthday(3i)"].length == 1
+      params_birthday_day = "0" + params[:client]["birthday(3i)"]
+    elsif params[:client]["birthday(3i)"].present?
+      params_birthday_day = params[:client]["birthday(3i)"]
+    else
+      params_birthday_day = ""
+    end
+
+    @client.birthday_month_day = params_birthday_month + params_birthday_day
+
     if @client.save
       redirect_to :root
     else
+      @set_birthday_year = params[:client]["birthday(1i)"]
+      @set_birthday_month = params[:client]["birthday(2i)"]
+      @set_birthday_day = params[:client]["birthday(3i)"]
       render "new"
     end
   end
 
   def edit
     @client = Client.find_by_id(params[:id])
+    if @client.birthday_year.present?
+      @set_birthday_year = @client.birthday_year.to_i
+    end
+    if @client.birthday_month_day.present?
+      if @client.birthday_month_day[0] == "0"
+        @set_birthday_month = @client.birthday_month_day[1].to_i
+      else
+        @set_birthday_month = @client.birthday_month_day[0..1].to_i
+      end
+      if @client.birthday_month_day[2] == "0"
+        @set_birthday_day = @client.birthday_month_day[3].to_i
+      else
+        @set_birthday_day = @client.birthday_month_day[2..3].to_i
+      end
+    end
   end
 
   def update
@@ -28,9 +71,37 @@ class ClientsController < ApplicationController
     @client.assign_attributes(record_params)
     @client.postal_code = params["zip11"]
     @client.address = params["addr11"]
+
+    if params[:client]["birthday(1i)"].present?
+      @client.birthday_year = params[:client]["birthday(1i)"]
+    else
+      @client.birthday_year = nil
+    end
+
+    if params[:client]["birthday(2i)"].present? && params[:client]["birthday(2i)"].length == 1
+      params_birthday_month = "0" + params[:client]["birthday(2i)"]
+    elsif params[:client]["birthday(2i)"].present?
+      params_birthday_month = params[:client]["birthday(2i)"]
+    else
+      params_birthday_month = ""
+    end
+
+    if params[:client]["birthday(3i)"].present? && params[:client]["birthday(3i)"].length == 1
+      params_birthday_day = "0" + params[:client]["birthday(3i)"]
+    elsif params[:client]["birthday(3i)"].present?
+      params_birthday_day = params[:client]["birthday(3i)"]
+    else
+      params_birthday_day = ""
+    end
+
+    @client.birthday_month_day = params_birthday_month + params_birthday_day
+
     if @client.save
       redirect_to :root
     else
+      @set_birthday_year = params[:client]["birthday(1i)"]
+      @set_birthday_month = params[:client]["birthday(2i)"]
+      @set_birthday_day = params[:client]["birthday(3i)"]
       render "edit"
     end
   end
@@ -55,8 +126,6 @@ class ClientsController < ApplicationController
         :kana_sei,
         :kana_mei,
         :sex,
-        :birthday_year,
-        :birthday_month_day,
         :tel1,
         :tel2,
         :tel3,

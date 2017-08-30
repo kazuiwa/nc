@@ -1,6 +1,16 @@
 #coding: utf-8
 class Client < ApplicationRecord
 
+  attr_accessor :birthday
+
+  validate :check_birthday_month_day
+
+  def check_birthday_month_day
+    if self.birthday_month_day.length != 4 && self.birthday_month_day.length != 0
+      errors.add("生年月日の月日が不正です。", "")
+    end
+  end
+
   DOUKIES = [["ホットペッパー（本誌）", 1],
              ["ホットペッパー（インターネット）", 2],
              ["通りがかり", 3],

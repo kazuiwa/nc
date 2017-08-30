@@ -1,5 +1,19 @@
 $(function(){
     if ($("#client-new").length || $("#client-edit").length) {
+        if ($("#client-new").length) {
+            if ($("#set_birthday_year").val().length) {
+                $("#client_birthday_1i").val($("#set_birthday_year").val())
+                $("#client_birthday_2i").val($("#set_birthday_month").val())
+                $("#client_birthday_3i").val($("#set_birthday_day").val())
+            } else {
+                $("#client_birthday_1i").val(1990)
+            }
+        }
+        if ($("#client-edit").length) {
+            $("#client_birthday_1i").val($("#set_birthday_year").val())
+            $("#client_birthday_2i").val($("#set_birthday_month").val())
+            $("#client_birthday_3i").val($("#set_birthday_day").val())
+        }
         //動機プルダウン変更時のアクション
         $("#client_douki").change(function () {
             //紹介の場合

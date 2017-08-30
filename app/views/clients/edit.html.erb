@@ -1,3 +1,4 @@
+<%= render 'shared/errors', obj: @client %>
 <div id="client-edit">
   <h4 style="float: left;">顧客データを編集します。</h4>
   <div style="text-align: right"><%= link_to "一覧へ戻る", { :controller => "clients", :action => "index" }, { :class => "btn btn-default" }  %></div>

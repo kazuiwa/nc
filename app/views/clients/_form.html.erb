@@ -1,3 +1,6 @@
+<%= hidden_field_tag :set_birthday_year, @set_birthday_year %>
+<%= hidden_field_tag :set_birthday_month, @set_birthday_month %>
+<%= hidden_field_tag :set_birthday_day, @set_birthday_day %>
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :sei, "姓" %></div>
   <div class="col-md-2"><%= form.text_field :sei, class: "form-control" %></div>
@@ -23,14 +26,16 @@
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :birthday, "生年月日" %></div>
   <div class="col-md-4">
-    <div class="col-md-1" style="padding: 0; text-align: right; width: 15px;">年</div>
-    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_year, class: "form-control", maxlength: "4", type:"tel" %></div>
-    <div class="col-md-2" style="padding: 0; text-align: right; width: 30px;">月日</div>
-    <div class="col-md-3" style="padding-left: 0; width: 75px;"><%= form.text_field :birthday_month_day, class: "form-control", maxlength: "4", type:"tel" %></div>
-    <div class="col-md-3"></div>
+    <%= form.date_select :birthday,
+                         {start_year: 1930, end_year: Time.now.year,
+                         use_month_numbers: true,
+                         date_separator: '/',
+                         include_blank: true},
+                         {class: "form-control",
+                         style: "display: inline-block; width: auto;"}
+    %>
   </div>
 </div>
-
 <div class="row form-group">
   <div class="col-md-2 form-label"><%= form.label :postal_code, "郵便番号" %></div>
   <div class="col-md-10" style="width: 110px;"><input type="tel" name="zip11" class="form-control" maxlength="7" value="<%= @client.postal_code %>" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"></div>
